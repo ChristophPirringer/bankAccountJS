@@ -10,9 +10,9 @@
   <body>
     <div class="container">
       <h1>The Bank</h1>
+      <div class="row">
 
-      <div class="row container">
-        <div class="col-md-4">
+        <div class="col-sm-6">
           <h2>Sign up for a bank account</h2>
           <form id="create_account" onsubmit="return false;">
             <label for="owner_name">Your name: </label>
@@ -24,7 +24,7 @@
           </form>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-sm-6">
           <h2>Withdraw or submit funds:</h2>
           <form id="change_balance" onsubmit="return false;">
             <label for="amount">The amount to change: </label>
@@ -33,18 +33,16 @@
             <button type="button" class="btn btn-default" id="deposit_button">Deposit</button>
             <button type="button" class="btn btn-default" id="withdraw_button">Withdraw</button>
           </form>
-
-          <div class="jumbotron" id="balance_jumbo">
-            <div class="container" id="balance_container">
-              <h2 id="balance"><span id="account_owner"></span> current balance:</h2>
-
-            </div>
-          </div>
         </div>
 
-
-
       </div>
+
+      <div class="jumbotron" id="balance_jumbo">
+        <div class="container" id="balance_container">
+          <h2 id="balance"><span id="account_owner"></span> current balance:</h2>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>
