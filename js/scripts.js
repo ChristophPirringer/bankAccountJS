@@ -24,7 +24,6 @@ Account.prototype.withdrawFunds = function(subtractAmount) {
 
 
 $(document).ready(function() {
-
   $("form#create_account").submit(function(event) {
     event.preventDefault();
 
@@ -32,20 +31,27 @@ $(document).ready(function() {
     var balance = $('input#initial_deposit').val();
 
     var newAccount = new Account(ownerName, balance);
+    $('#account_owner').text(newAccount.name + "'s ")
     $("#balance").append("<p class = 'new_balance'>" + newAccount.balance + "</p>");
+
 
     $("#deposit_button").click(function() {
       var addAmount =  parseInt($('input#amount').val());
       newAccount.addFunds(addAmount)
-    // debugger;
       $(".new_balance").replaceWith("<p class = 'new_balance'>" + newAccount.balance + "</p>");
+      if( newAccount.balance > 0) {
+        $('.jumbotron#balance_jumbo').removeClass('negative');
+      };
     });
 
     $("#withdraw_button").click(function() {
       var subtractAmount =  parseInt($('input#amount').val());
       newAccount.withdrawFunds(subtractAmount);
       $(".new_balance").replaceWith("<p class = 'new_balance'>" + newAccount.balance + "</p>");
+      if( newAccount.balance < 0) {
+        $('.jumbotron#balance_jumbo').addClass('negative');
+      };
     });
-  });
 
+  });
 });
